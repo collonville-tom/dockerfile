@@ -52,7 +52,7 @@ under the License.
    | Default: ${user.home}/.m2/repository
   <localRepository>/path/to/local/repo</localRepository>
   -->
-
+<localRepository>/repolocal</localRepository>
   <!-- interactiveMode
    | This will determine whether maven prompts you when it needs input. If set to false,
    | maven will use a sensible default value, perhaps based on some other setting, for
@@ -189,7 +189,7 @@ under the License.
   <profile>
 			<id>compiler</id>
 			<properties>
-				<JAVA_1_8_HOME>C:\Program Files\Java\jdk1.8.0_181</JAVA_1_8_HOME>
+				<JAVA_1_8_HOME>${JAVA_HOME}</JAVA_1_8_HOME>
 			</properties>
 		</profile>
 
