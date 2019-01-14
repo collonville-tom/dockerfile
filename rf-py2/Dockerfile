@@ -3,8 +3,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends python python-p
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/
 RUN pip install setuptools Wheel
-RUN pip install JayDeBeAPi JPype1 psycopg2-binary robotframework robotframework-databaselibrary robotframework-seleniumlibrary \
-				robotframework-sudslibrary selenium suds  
+RUN pip install robotframework robotframework-databaselibrary robotframework-seleniumlibrary \
+				robotframework-sudslibrary selenium suds 
 CMD python
 
 
