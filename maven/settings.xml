@@ -197,7 +197,7 @@ under the License.
 		<profile>
 			<id>external</id>
 			<repositories>
-				<repository>
+      				<repository>
               	  <id>clojars</id>
               	  <name>clojars</name>
                	 <url>http://clojars.org/repo/</url>
