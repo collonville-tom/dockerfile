@@ -1,0 +1,1 @@
+Mettre les bundles a installer dans ce repertoire avant la construction de l'image
