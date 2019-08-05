@@ -1,6 +1,6 @@
 FROM collonvtom/ml:latest
 RUN pip3 install --upgrade pip setuptools
-RUN pip3 install jupyter seaborn matplotlib
+RUN pip3 install jupyter seaborn matplotlib mpld3
 VOLUME /home
 EXPOSE 8888
 WORKDIR /home/

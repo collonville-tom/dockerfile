@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<profiles>
+		<profile>
+			<id>compiler</id>
+			<properties>
+				<JAVA_1_8_HOME>${JAVA_HOME}</JAVA_1_8_HOME>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>external</id>
+			<repositories>
+				<repository>
+              	  <id>clojars</id>
+              	  <name>clojars</name>
+               	  <url>http://clojars.org/repo/</url>
+           		</repository>
+            	<repository>
+              	  <id>central</id>
+              	  <name>central</name>
+               	  <url>http://repo1.maven.org/maven2</url>
+           		 </repository>
+            	<repository>
+              	  <id>mvnrepository</id>
+              	  <name>mvnrepository</name>
+               	  <url>http://www.mvnrepository.com</url>
+           		 </repository>
+       		 </repositories>
+		</profile>
+
+		<!--quand on a besoin d'une release, normalement tout le temps sauf pour les composants interne au build-->
+		<profile>
+			<id>release</id>
+			<repositories>
+				<repository>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<id>dependencies</id>
+					<name>release</name>
+					<url>https://collonville-tom.github.io/tc-delivery/repositories/tc-release-local</url>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<id>dependencies</id>
+					<name>plugins-release</name>
+					<url>https://collonville-tom.github.io/tc-delivery/repositories/tc-release-local</url>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>external</activeProfile>
+		<activeProfile>release</activeProfile>
+		<activeProfile>compiler</activeProfile>
+	</activeProfiles>
+</settings>
