@@ -5,4 +5,4 @@ RUN mkdir -p /repolocal
 VOLUME /maven_work_dir
 VOLUME /repolocal
 WORKDIR /maven_work_dir/
-ENTRYPOINT mvn clean install -X
+ENTRYPOINT mvn clean install -X -s ./.travis.settings.xml
