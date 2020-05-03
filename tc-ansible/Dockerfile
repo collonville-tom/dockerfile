@@ -16,4 +16,4 @@ VOLUME /root/ssh
 
 WORKDIR /work_dir
 
-CMD /bin/bash -c "/work_dir/runInDocker.sh"
+CMD /bin/bash /work_dir/runInDocker.sh
