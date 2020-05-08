@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
 RUN mkdir -p /work_dir
 WORKDIR /work_dir
