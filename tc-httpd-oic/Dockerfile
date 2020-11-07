@@ -20,6 +20,7 @@ RUN mkdir ${BUILD_DIR}
 RUN apk update && apk add --no-cache \
   apache2 \
   apache2-proxy \
+  apache2-ssl \
   wget \
   jansson \
   hiredis \
