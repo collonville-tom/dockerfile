@@ -14,6 +14,8 @@ RUN mkdir -p /work_dir /root/ssh
 VOLUME /work_dir
 VOLUME /root/ssh
 
+ENV USER="ansible-user"
+
 WORKDIR /work_dir
 
-CMD /bin/bash /work_dir/runInDocker.sh
+CMD ansible-playbook -i inventaire.ini --user ${USER} main.yml
