@@ -1,4 +1,4 @@
-FROM sspreitzer/shellinabox:ubuntu
+FROM mahasiah:32188/shellinabox:1.0.0
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -10,7 +10,16 @@ RUN apt-get update \
                 gnupg2 \
                 libglib2.0-0 libnss3 libx11-6 \
                 unzip \
-                lsb-release \  
+                lsb-release \
+                bash \
+                nano \
+                git \
+                apt-transport-https \
+                software-properties-common \
+                iproute2 jq mtr iputils-ping \
+                net-tools openssl \
+                procps tcpdump tcptraceroute wget \
+                ca-certificates \
     && apt-get clean \
 	&& rm -rf /var/lib/apt/lists/             
 
@@ -21,21 +30,9 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/d
 
 RUN apt-get update \
     && apt-get install  -y --no-install-recommends \
-                bash \
-                git \
-                apt-transport-https \
-                software-properties-common \
-                iproute2 jq mtr iputils-ping \
-                net-tools openssl \
-                procps tcpdump tcptraceroute wget \
-                ca-certificates \
-                python3 python3-pip python3-dev \
                 docker-ce docker-ce-cli containerd.io \
     && apt-get clean \
 	&& rm -rf /var/lib/apt/lists/
-
-RUN pip3 install --upgrade pip setuptools Wheel\
-    && pip3 install ansible Flask requests bson==0.5.7 pymongo==3.7.2 python_http_client lxml numpy pandas scikit-learn scipy six 
 
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.0/bin/linux/amd64/kubectl \
     && chmod +x ./kubectl \
