@@ -12,7 +12,7 @@ RUN apt-get update \
                 unzip \
                 lsb-release \
                 bash \
-                nano \
+                nano vim\
                 git \
                 apt-transport-https \
                 software-properties-common \
