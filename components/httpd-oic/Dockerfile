@@ -1,8 +1,12 @@
-FROM alpine:3.10
+FROM alpine:edge
 
 ENV MOD_AUTH_OPENIDC_REPOSITORY https://github.com/zmartzone/mod_auth_openidc.git
+#ENV MOD_OAUTH2_REPOSITORY https://github.com/zmartzone/mod_oauth2.git
+#ENV MOD_LIB_OAUTH2_REPOSITORY https://github.com/zmartzone/liboauth2.git
 
-ENV MOD_AUTH_OPENIDC_BRANCH master
+ENV MOD_AUTH_OPENIDC_BRANCH v2.4.4.1
+#ENV MOD_LIB_OAUTH2_BRANCH v1.4.4.1
+#ENV MOD_OAUTH2_BRANCH v3.2.2
 
 ENV BUILD_DIR /tmp/mod_auth_openidc
 
@@ -41,9 +45,23 @@ RUN apk update && apk add --no-cache \
   cd mod_auth_openidc && \
   ./autogen.sh && \
   ./configure CFLAGS="-g -O0" LDFLAGS="-lrt" && \
-  make test && \
   make install && \
   cd ../.. && \
+#  cd ${BUILD_DIR} && \
+#  git clone -b ${MOD_LIB_OAUTH2_BRANCH} ${MOD_LIB_OAUTH2_REPOSITORY} && \
+#  cd liboauth2 && \
+#  ./autogen.sh && \
+#  ./configure CFLAGS="-g -O0" LDFLAGS="-lrt" && \
+#  make install && \
+#  cd ../.. && \
+#  cd ${BUILD_DIR} && \
+#  git clone -b ${MOD_OAUTH2_BRANCH} ${MOD_OAUTH2_REPOSITORY} && \
+#  cd mod_oauth2 && \
+#  ./autogen.sh && \
+#  ./configure CFLAGS="-g -O0" LDFLAGS="-lrt" && \
+#  make install && \  erreur de plateforme prevoir d'en changer : libtool:   error: mod_oauth2.la is not a valid libtool archive
+#                                                                   apxs:Error: Command failed with rc=65536
+#  cd ../.. && \
   rm -fr ${BUILD_DIR} && \
   apk del git cjose-dev apache2-dev autoconf automake build-base wget curl-dev pcre-dev libtool
 
