@@ -25,6 +25,7 @@ RUN apk update && apk add --no-cache \
   apache2 \
   apache2-proxy \
   apache2-ssl \
+  apache2-utils \
   wget \
   jansson \
   hiredis \
