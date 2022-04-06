@@ -1,7 +1,7 @@
 FROM openjdk:8-jre-alpine
 
-RUN wget http://mirror.ibcp.fr/pub/apache//felix/org.apache.felix.main.distribution-6.0.1.tar.gz \
-&& tar zxvpf org.apache.felix.main.distribution-6.0.1.tar.gz && rm org.apache.felix.main.distribution-6.0.1.tar.gz
+RUN wget https://dlcdn.apache.org/felix/org.apache.felix.main.distribution-7.0.3.zip \
+&& unzip org.apache.felix.main.distribution-7.0.3.zip && rm org.apache.felix.main.distribution-7.0.3.zip
 
-COPY . /felix-framework-6.0.1/
-CMD cd /felix-framework-6.0.1; java -jar bin/felix.jar
+COPY . /felix-framework-7.0.3/
+CMD cd /felix-framework-7.0.3; java -jar bin/felix.jar
