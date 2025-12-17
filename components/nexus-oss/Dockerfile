@@ -5,8 +5,8 @@ ENV NEXUS_USER_NAME=nexus \
 
 RUN mkdir -p $NEXUS_HOME
 
-# unzip nexus-3.38.0-01.zip in build directory
-COPY nexus-3.38.0-01 ${NEXUS_HOME}/nexus
+# unzip nexus-3.87.1-01 in build directory
+COPY nexus-3.87.1-01 ${NEXUS_HOME}/nexus
 
 RUN set -ex \
     sed -i "s/nofiles/${NEXUS_USER_NAME}/" /etc/group \

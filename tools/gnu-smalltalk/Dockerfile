@@ -1,5 +1,8 @@
-FROM ubuntu:latest
-RUN apt-get update && apt-get install -y --no-install-recommends gnu-smalltalk\
+FROM ubuntu:22.04
+
+
+RUN apt-get update && apt-get install -y gnu-smalltalk \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/
+
 WORKDIR /source

@@ -1,11 +1,11 @@
-FROM openjdk:15-slim-buster
+FROM openjdk:15-ea-15-slim
 
 ENV ARTIFACTORY_USER_NAME=artifactory \
     ARTIFACTORY_HOME=/opt/jfrog/artifactory  
 
 RUN mkdir /opt/jfrog
-# unzip artifactory-oss-7.9.2.zip in build directory
-COPY artifactory-oss-7.9.2 ${ARTIFACTORY_HOME}
+# unzip artifactory-oss-7.125.8.zip in build directory
+COPY artifactory-oss-7.125.8 ${ARTIFACTORY_HOME}
 
 RUN set -ex \
     sed -i "s/nofiles/${ARTIFACTORY_USER_NAME}/" /etc/group \
